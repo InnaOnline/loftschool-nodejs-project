@@ -98,7 +98,7 @@ exports.deleteNews = ({id}) => new Promise(async (resolve, reject) => {
         // delete news
         await News.findByIdAndRemove(id);
 
-        // all news
+        // возвращаем все новости всех юзеров
         const resolvedResult = await getNews();
 
         resolve(resolvedResult);

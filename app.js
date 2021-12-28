@@ -7,7 +7,7 @@ require("./db");
 
 const app = express();
 const server = require("http").Server(app);
-const io = require(".io")(server);
+const io = require("socket.io")(server);
 
 app.use(cors());
 app.use(logger("dev"));
@@ -24,7 +24,7 @@ app.get("*", (req, res) => {
 
 require("./api/controllers/chat")(io);
 
-// catch 404 
+// catch 404
 app.use(function(req, res, next) {
   next(createError(404));
 });

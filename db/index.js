@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 //*promises
-mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise; // es6 promise
 
 const connectionURL = `mongodb://admin:admin123@ds213178.mlab.com:13178/loftschool-node`;
 
