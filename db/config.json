@@ -1,0 +1,9 @@
+{
+    "db": {
+        "host": "localhost",
+        "port": "27017",
+        "name": "nodejsdz5",
+        "user": "",
+        "password": ""
+    }
+}
