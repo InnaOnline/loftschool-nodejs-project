@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const schema = new mongoose.Schema({
-    username: {
+    userName: {
         type: String,
         required: true
     },
@@ -69,8 +69,8 @@ module.exports.updateUserPassword = (user) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-module.exports.getUserByUsername = (username, callback) => new Promise((resolve, reject) => {
-    User.findOne({username})
+module.exports.getUserByUsername = (userName, callback) => new Promise((resolve, reject) => {
+    User.findOne({userName})
     .then(resolve)
     .catch(reject);
 });

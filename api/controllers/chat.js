@@ -11,7 +11,7 @@ module.exports = (io) => {
                 user = {
                     socketId,
                     userId: data.userId,
-                    username: data.username
+                    userName: data.userName
                 }
                 users[socketId] = user;
                 console.log('User connected to chat: ', user);

@@ -11,7 +11,7 @@ const newsSerializer = (news, user) => ({
         image: user.image || '',
         middleName: user.middleName || '',
         surName: user.surName || '',
-        username: user.username
+        userName: user.userName
     }
 })
 const getNews = exports.getNews = () => new Promise(async (resolve, reject) => {
@@ -30,7 +30,7 @@ const getNews = exports.getNews = () => new Promise(async (resolve, reject) => {
                     image: '',
                     middleName: 'Undefined',
                     surName: 'Undefined',
-                    username: 'Undefined'
+                    userName: 'Undefined'
                 }
             }
             return newsSerializer(news, user)

@@ -10,12 +10,12 @@ const userSerializer = user => ({
     middleName: user.middleName || '',
     permission: user.permission,
     surName: user.surName || '',
-    username: user.username,
+    userName: user.userName,
 });
 
-exports.registration = ({ username, surName, firstName, middleName, password }) => new Promise(async (resolve, reject) => {
+exports.registration = ({ userName, surName, firstName, middleName, password }) => new Promise(async (resolve, reject) => {
     try {
-        if (!username || !password) {
+        if (!userName || !password) {
             reject({
                 status: 400,
                 message: 'Username and password are required'
@@ -23,7 +23,7 @@ exports.registration = ({ username, surName, firstName, middleName, password }) 
             return;
         }
 
-        let existedUser = await User.getUserByUsername(username);
+        let existedUser = await User.getUserByUsername(userName);
         if (existedUser) {
             reject({
                 status: 400,
@@ -33,7 +33,7 @@ exports.registration = ({ username, surName, firstName, middleName, password }) 
         }
 
         let newUser = new User({
-            username,
+            userName,
             surName,
             firstName,
             middleName,
@@ -55,7 +55,7 @@ exports.registration = ({ username, surName, firstName, middleName, password }) 
             password: password || '',
             permission: savedUser.permission,
             surName: savedUser.surName || '',
-            username: savedUser.username
+            userName: savedUser.userName
         }
 
         resolve(resolvedUser);
@@ -66,16 +66,16 @@ exports.registration = ({ username, surName, firstName, middleName, password }) 
     }
 });
 
-exports.login = ({username, password}) => new Promise(async (resolve, reject) => {
+exports.login = ({userName, password}) => new Promise(async (resolve, reject) => {
     try {
-        if (!username || !password) {
+        if (!userName || !password) {
             return reject({
                 status: 400,
                 message: 'Username and password are required'
             });
         }
 
-        let existedUser = await User.getUserByUsername(username);
+        let existedUser = await User.getUserByUsername(userName);
         if (!existedUser) {
             return reject({
                 status: 404,
